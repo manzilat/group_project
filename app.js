@@ -11,8 +11,7 @@ function app(people){
      console.log("enter your name", searchByName(people));
     break;
     case 'no':
-    searchByTraits(people)
-    ;
+    searchByTraits(people);
     break;
     default:
     alert("Wrong! Please try again, following the instructions dummy. :)");
@@ -58,6 +57,7 @@ function searchByTraits(people) {
   mainMenu(foundPerson, people);
 
 }
+
 function searchByEyeColor(people){
   let userInputEyeColor = prompt("what is the EyeColor of the person?");
 
@@ -127,6 +127,7 @@ function searchByOccupation(people){
 
   return newArray;
 }
+
 function searchByWeight(people) {
   let userInputWeight = prompt("How much does the person weigh?");
 

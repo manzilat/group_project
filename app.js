@@ -11,7 +11,8 @@ function app(people){
      console.log("enter your name", searchByName(people));
     break;
     case 'no':
-    searchByTraits(people);
+    searchByTraits(people)
+    ;
     break;
     default:
     alert("Wrong! Please try again, following the instructions dummy. :)");
@@ -31,6 +32,20 @@ function searchByTraits(people) {
     case "weight":
       filteredPeople = searchByWeight(people);
       break;
+      case "eyecolor":
+      filteredPeople = searchByEyeColor(people);
+      break;
+
+      case "gender":
+      filteredPeople = searchByGender(people);
+      break;
+    case "age":
+      filteredPeople = searchByAge(people);
+      break;
+      case "occupation":
+      filteredPeople = searchByOccupation(people);
+      break;
+
     // so on and so forth
     default:
       alert("You entered an invalid search type! Please try again.");
@@ -43,7 +58,75 @@ function searchByTraits(people) {
   mainMenu(foundPerson, people);
 
 }
+function searchByEyeColor(people){
+  let userInputEyeColor = prompt("what is the EyeColor of the person?");
 
+  let newArray = people.filter(function (el) {
+    if(el.eyeColor == userInputEyeColor) {
+      return true;
+    }
+  else{
+    return false;
+  }
+  });
+
+  return newArray;
+}
+
+function searchByGender(people){
+  let userInputGender = prompt("what is the Gender of the person?");
+
+  let newArray = people.filter(function (el) {
+    if(el.gender == userInputGender) {
+      return true && people.filter(searchByName(el))
+      if(searchByName==true){
+
+      }
+    }
+    else{
+      return false && people.filter(searchByName(el))
+        return true;
+    }
+    });
+  
+  return newArray;
+}
+function searchByHeight(people){
+  let userInputHeight = prompt("what is the height of the person?");
+
+  let newArray = people.filter(function (el) {
+    if(el.height == userInputHeight) {
+      return true;
+    }
+    // return true if el.weight matches userInputHeight
+  });
+
+  return newArray;
+}
+function searchByAge(people){
+  let userInputAge = prompt("what is the dob (date of birth) the person?");
+
+  let newArray = people.filter(function (el) {
+    if(el.age == userInputAge) {
+      return true;
+  }
+    // return true if el.weight matches userInputHeight
+  });
+
+  return newArray;
+}
+function searchByOccupation(people){
+  let userInputOccupation = prompt("what is the occupation of the person?");
+
+  let newArray = people.filter(function (el) {
+    if(el.occupation == userInputOccupation) {
+      return true;
+    }
+    // return true if el.weight matches userInputHeight
+  });
+
+  return newArray;
+}
 function searchByWeight(people) {
   let userInputWeight = prompt("How much does the person weigh?");
 
@@ -97,6 +180,7 @@ function searchByName(people){
 
 }
 
+
 // alerts a list of people
 function displayPeople(people){
   alert(people.map(function(person){
@@ -130,3 +214,6 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
+
+
+

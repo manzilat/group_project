@@ -9,7 +9,9 @@ function app(people){
   switch(searchType){
     case 'yes':
     // TODO: search by name
-     console.log("enter your name", searchByName(people));
+    searchByName(people);
+    
+    
     break;
     case 'no':
     searchByTraits(people)
@@ -71,8 +73,7 @@ function searchByTraits(people) {
 
 }
 
-function searchByParents(people){
-  let userInputParents = prompt("eter the name of the parent?");
+
 
 function searchByEyeColor(people){
   let userInputEyeColor = prompt("what is the EyeColor of the person?");
@@ -133,7 +134,7 @@ function searchByAge(people){
 }
 function searchByOccupation(people){
   let userInputOccupation = prompt("what is the occupation of the person?");
-}
+
 
 
   let newArray = people.filter(function (el) {
@@ -147,21 +148,6 @@ function searchByOccupation(people){
 
   return newArray;
 }
-function searchByEyeColor(people){
-  let userInputEyeColor = prompt("what is the EyeColor of the person?");
-
-  let newArray = people.filter(function (el) {
-    if(el.eyeColor == userInputEyeColor) {
-      return true;
-    }
-  else{
-    return false;
-  }
-  });
-
-  return newArray;
-}
-
 function searchByGender(people){
   let userInputGender = prompt("what is the Gender of the person?");
 
@@ -308,8 +294,7 @@ function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
   
-    colsole.log("the information about the person is:",searchByTraits);
-    return searchByTraits
+    
   // TODO: find the person using the name they entered
 
 }

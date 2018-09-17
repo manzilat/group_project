@@ -338,7 +338,16 @@ function displayPerson(person){
   // height, weight, age, name, occupation, eye color.
   var personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-personInfo += "eyecolor": " + person.eycolor "
+  personInfo += "Height: " + person.Height + "\n";
+  personInfo += "Weight: " + person.Weight + "\n";
+  personInfo += "eyeColor: " + person.eyeColor + "\n";
+  personInfo += "parents: " + person.parents + "\n";
+  personInfo += "occupation: " + person.occupation + "\n";
+  personInfo += "currentSpouse: " + person.currentSpouse + "\n";
+  
+
+
+
   // TODO: finish getting the rest of the information to display
   alert(personInfo);
 }

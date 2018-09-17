@@ -70,8 +70,71 @@ function searchByTraits(people) {
   mainMenu(foundPerson, people);
 
 }
+
 function searchByParents(people){
-  let userInputParents = prompt("emter the name of the parent?");
+  let userInputParents = prompt("eter the name of the parent?");
+
+function searchByEyeColor(people){
+  let userInputEyeColor = prompt("what is the EyeColor of the person?");
+
+  let newArray = people.filter(function (el) {
+    if(el.eyeColor == userInputEyeColor) {
+      return true;
+    }
+  else{
+    return false;
+  }
+  });
+
+  return newArray;
+}
+
+function searchByGender(people){
+  let userInputGender = prompt("what is the Gender of the person?");
+
+  let newArray = people.filter(function (el) {
+    if(el.gender == userInputGender) {
+      return true && people.filter(searchByName(el))
+      if(searchByName==true){
+
+      }
+    }
+    else{
+      return false && people.filter(searchByName(el))
+        return true;
+    }
+    });
+  
+  return newArray;
+}
+function searchByHeight(people){
+  let userInputHeight = prompt("what is the height of the person?");
+
+  let newArray = people.filter(function (el) {
+    if(el.height == userInputHeight) {
+      return true;
+    }
+    // return true if el.weight matches userInputHeight
+  });
+
+  return newArray;
+}
+function searchByAge(people){
+  let userInputAge = prompt("what is the dob (date of birth) the person?");
+
+  let newArray = people.filter(function (el) {
+    if(el.age == userInputAge) {
+      return true;
+  }
+    // return true if el.weight matches userInputHeight
+  });
+
+  return newArray;
+}
+function searchByOccupation(people){
+  let userInputOccupation = prompt("what is the occupation of the person?");
+}
+
 
   let newArray = people.filter(function (el) {
     if(el.parents== userInputParents) {
@@ -184,6 +247,7 @@ function searchByOccupation(people){
   let userInputOccupation = prompt("what is the occupation of the person?");
 
 
+
   let newArray = people.filter(function (el) {
     if(el.occupation == userInputOccupation) {
       return true;
@@ -285,3 +349,6 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
+
+
+

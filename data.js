@@ -230,7 +230,7 @@ let data = [
 		"height": 70,
 		"weight": 187,
 		"eyeColor": "brown",
-		"occupation": "politician",
+		"occupation": "politician", 
 		"parents": [693243224, 888201200],
 		"currentSpouse": null
 	},

@@ -7,8 +7,9 @@ function app(people){
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
     case 'yes':
+
     // TODO: search by name
-     console.log("enter your name", searchByName(people));
+     console.log("enter your name", searchByName(data));
     break;
     case 'no':
     searchByTraits(people)
@@ -39,9 +40,6 @@ function searchByTraits(people) {
       case "gender":
       filteredPeople = searchByGender(people);
       break;
- 
-    case "age":
-      filteredPeople = searchByAge(people);
 
     case "dob":
       filteredPeople = searchByDob(people);
@@ -50,6 +48,7 @@ function searchByTraits(people) {
       case "occupation":
       filteredPeople = searchByOccupation(people);
       break;
+    
 
     // so on and so forth
     default:
@@ -108,18 +107,12 @@ function searchByHeight(people){
 
   return newArray;
 }
-function searchByAge(people){
-  let userInputAge = prompt("what is the dob (date of birth) the person?");
 
-  let newArray = people.filter(function (el) {
-    if(el.age == userInputAge) {
-      return true;
-  }
-    // return true if el.weight matches userInputHeight
-  });
 
-  return newArray;
-}
+
+
+
+
 function searchByOccupation(people){
   let userInputOccupation = prompt("what is the occupation of the person?");
 }
@@ -222,6 +215,7 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
+
     // TODO: get person's info
     break;
     case "family":

@@ -43,8 +43,8 @@ function searchByTraits(people) {
       filteredPeople = searchByGender(people);
       break;
 
-    case "dob":
-      filteredPeople = searchByDob(people);
+    case "age":
+      filteredPeople = searchByAge(people);
 
       break;
       case "occupation":
@@ -119,13 +119,12 @@ function searchByHeight(people){
   return newArray;
 }
 function searchByAge(people){
-  let userInputAge = prompt("what is the dob (date of birth) the person?");
-
+  let userInputDob = prompt("what is the dob (date of birth) the person?");
+  let userInputHeight = prompt("what is the height of that person");
   let newArray = people.filter(function (el) {
-    if(el.age == userInputAge) {
+    if(el.dob === userInputDob && el.height == userInputHeight)  {
       return true;
-  }
-    // return true if el.weight matches userInputHeight
+    }  
   });
 
   return newArray;
@@ -200,6 +199,9 @@ function mainMenu(person, people){
     break;
 
     case "family":
+
+
+
     // TODO: get person's family
     break;
     case "descendants":
@@ -226,19 +228,13 @@ function searchByName(people){
   });
   displayPerson(foundPerson[0]);
 }
-  
-
-    
-  // TODO: find the person using the name they entered
-
-
-
-
-
+   // TODO: find the person using the name they entered
 // alerts a list of people
 function displayPeople(people){
   alert(people.map(function(person){
-    return person.firstName + " " + person.lastName;
+    return person.firstName + " " + person.lastName + "\n";
+   
+
   }).join("\n"));
 }
 
@@ -255,10 +251,6 @@ function displayPerson(person){
  
   alert(personInfo);
 }
-
-
-
-
 // function that prompts and validates user input
 function promptFor(question, callback){
   do{

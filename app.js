@@ -25,7 +25,7 @@ function app(people){
 }
 
 function searchByTraits(people) {
-  let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation' .");
+  let userSearchChoice = prompt("What would you like to search by? 'parents', 'id', 'height', 'weight', 'eye color', 'gender', 'age', 'occupation' .");
   let filteredPeople;
 
   switch(userSearchChoice) {
@@ -49,6 +49,11 @@ function searchByTraits(people) {
       break;
       case "occupation":
       filteredPeople = searchByOccupation(people);
+      case "id":
+      filteredPeople = searchById(people);
+      break;
+      case "parents":
+      filteredPeople = searchByParents(people);
       break;
 
       
@@ -65,6 +70,31 @@ function searchByTraits(people) {
   mainMenu(foundPerson, people);
 
 }
+function searchById(people){
+  let userInputid = prompt("what is the id of the person?");
+
+  let newArray = people.filter(function (el) {
+    if(el.id == userInputid) {
+      return true;
+    }
+    // return true if el.weight matches userInputHeight
+  });
+
+  return newArray;
+}
+function searchByParents(people){
+  let userInputParents = prompt("what is the id of the parent?");
+
+  let newArray = people.filter(function (el) {
+    if(el.parents == userInputParents) {
+      return true;
+    }
+   
+  });
+
+  return newArray;
+}
+
 function searchByHeight(people){
   let userInputHeight = prompt("what is the height of the person?");
 

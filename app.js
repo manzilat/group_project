@@ -108,9 +108,9 @@ function searchByGender(people){
   
 function searchByHeight(people){
   let userInputHeight = prompt("what is the height of the person?");
-
+  let userInputOccupation = prompt("what is the occupation of that person");
   let newArray = people.filter(function (el) {
-    if(el.height == userInputHeight) {
+    if(el.height == userInputHeight && el.occupation === userInputOccupation) {
       return true;
     }
     // return true if el.weight matches userInputHeight
@@ -120,9 +120,9 @@ function searchByHeight(people){
 }
 function searchByAge(people){
   let userInputDob = prompt("what is the dob (date of birth) the person?");
-  let userInputHeight = prompt("what is the height of that person");
+  
   let newArray = people.filter(function (el) {
-    if(el.dob === userInputDob && el.height == userInputHeight)  {
+    if(el.dob === userInputDob )  {
       return true;
     }  
   });
@@ -133,14 +133,12 @@ function searchByAge(people){
 
 function searchByEyeColor(people){
   let userInputEyeColor = prompt("what is the EyeColor of the person?");
-
+  let userInputDob = prompt("what is the dob (date of birth) the person?");
   let newArray = people.filter(function (el) {
-    if(el.eyeColor == userInputEyeColor) {
+    if(el.eyeColor == userInputEyeColor && el.dob === userInputDob) {
       return true;
     }
-  else{
-    return false;
-  }
+  
   });
 
   return newArray;
@@ -191,10 +189,10 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
 
+   filteredInfo = displayPerson(person);
 
     // TODO: get person's info
 
-    userSearchChoice= filteredInfo;
 
     break;
 

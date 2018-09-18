@@ -25,7 +25,7 @@ function app(people){
 }
 
 function searchByTraits(people) {
-  let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation' 'parents' 'currentSpouse'.");
+  let userSearchChoice = prompt("What would you like to search by? 'height', 'weight', 'eye color', 'gender', 'age', 'occupation' .");
   let filteredPeople;
 
   switch(userSearchChoice) {
@@ -188,22 +188,16 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-
-   filteredInfo = displayPerson(person);
-
-    // TODO: get person's info
-
-
+    filteredInfo = displayPerson(person);
     break;
-
     case "family":
 
+    filteredInfo = displayFamily(person)
 
-
-    // TODO: get person's family
     break;
     case "descendants":
-    // TODO: get person's descendants
+    filteredInfo = displayDescendants(person)
+
     break;
     case "restart":
     app(people); // restat
@@ -249,6 +243,26 @@ function displayPerson(person){
  
   alert(personInfo);
 }
+function displayFamily(person){
+ 
+  var personInfo = "First Name: " + person.firstName + "\n";
+  personInfo += "Last Name: " + person.lastName + "\n";
+  personInfo += "parents: " + person.parents + "\n";
+  personInfo += "currentSpouse: " + person.currentSpouse + "\n";
+ 
+ 
+  alert(personInfo);
+}
+function displayDescendants(person){
+  var personInfo = "First Name: " + person.firstName + "\n";
+  personInfo += "Last Name: " + person.lastName + "\n";
+  personInfo += "parents: " + person.parents + "\n";
+  
+}
+
+
+
+
 // function that prompts and validates user input
 function promptFor(question, callback){
   do{

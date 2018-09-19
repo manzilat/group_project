@@ -49,7 +49,8 @@ function searchByTraits(people) {
       alert("You entered an invalid search type! Please try again.");
       searchByTraits(people);
       break;
-  }  
+  } 
+  
   let foundPerson = filteredPeople[0];
   mainMenu(foundPerson, people);
 }
@@ -99,11 +100,9 @@ function searchByHeight(people){
 }
 function searchByAge(people){
   let userInputDob = prompt("what is the dob (date of birth) the person?");
-  let userInputEyeColor = prompt("what is the EyeColor of the person?");
-  let userInputWeight = prompt("How much does the person weigh?");
-  let userInputHeight = prompt("what is the height of the person?");
+  
   let newArray = people.filter(function (el) {
-    if(el.dob === userInputDob && el.eyeColor == userInputEyeColor &&  el.weight == userInputWeight && el.height == userInputHeight  )  {
+    if(el.dob === userInputDob   )  {
       return true;
     }  
   });
@@ -192,22 +191,11 @@ function displayPerson(person){
   alert(personInfo);
 }
 function displaySpouseId(person, people){
-  let output = [];
-  for(let i = 0; i < people; i++){
-    if (person.currentSpouse == people[i].id ){
-      output.push(people[i]);
-    }
-  }
-
+  
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-  personInfo += "parents: " + person.parents + "\n";
   personInfo += "currentSpouse: " + person.currentSpouse + "\n";
-  for(let i = 0; i < person.currentSpouse.length; i++){
-
-    personInfo += "currentSpouse: " + output[i].firstName + " " + output[i].lastName + " ";
-     
-  }
+  
  alert(personInfo);
 }
 function displayGetNameFromId(person, people){

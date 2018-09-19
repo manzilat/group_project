@@ -9,8 +9,6 @@ function app(people){
   switch(searchType){
     case 'yes':
 
-    // TODO: search by name
-    //if("enter your name", searchByName(people) && displayPeople(people));
     searchByName(people)
     break;
     case 'no':
@@ -35,7 +33,7 @@ function searchByTraits(people) {
     case "weight":
       filteredPeople = searchByWeight(people);
       break;
-      case "eyecolor":
+      case "eye color":
       filteredPeople = searchByEyeColor(people);
       break;
 
@@ -43,7 +41,7 @@ function searchByTraits(people) {
       filteredPeople = searchByGender(people);
       break;
 
-    case "age":
+      case "age":
       filteredPeople = searchByAge(people);
 
       break;
@@ -55,10 +53,6 @@ function searchByTraits(people) {
       case "parents":
       filteredPeople = searchByParents(people);
       break;
-
-      
-
-    // so on and so forth
     default:
       alert("You entered an invalid search type! Please try again.");
       searchByTraits(people);
@@ -71,29 +65,18 @@ function searchByTraits(people) {
 
 }
 function searchById(people){
-  let userInputid = prompt("what is the id of the person?");
+  let userInputId = prompt("what is the id of the person?");
 
   let newArray = people.filter(function (el) {
-    if(el.id == userInputid) {
+    if(el.id == userInputId) {
+    
       return true;
     }
-    // return true if el.weight matches userInputHeight
-  });
+     });
 
   return newArray;
 }
-function searchByParents(people){
-  let userInputParents = prompt("what is the id of the parent?");
 
-  let newArray = people.filter(function (el) {
-    if(el.parents == userInputParents) {
-      return true;
-    }
-   
-  });
-
-  return newArray;
-}
 
 function searchByHeight(people){
   let userInputHeight = prompt("what is the height of the person?");
@@ -102,7 +85,7 @@ function searchByHeight(people){
     if(el.height == userInputHeight) {
       return true;
     }
-    // return true if el.weight matches userInputHeight
+   
   });
 
   return newArray;
@@ -123,14 +106,17 @@ function searchByOccupation(people){
 function searchByGender(people){
   let userInputGender = prompt("what is the gender of that person");
   let userInputHeight = prompt("what is the height of that person");
+  let userInputDob = prompt("what is the dob (date of birth) the person?");
+  let userInputEyeColor = prompt("what is the EyeColor of the person?");
+  let userInputWeight = prompt("How much does the person weigh?");
   let newArray = people.filter(function (el) {
-    if(el.gender == userInputGender && (el.height == userInputHeight ) ) {
+    if(el.gender == userInputGender && el.height == userInputHeight  && el.dob === userInputDob && el.eyeColor == userInputEyeColor ) {
       return true
     
     }
     else {
       return false;
-    }// return true if el.weight matches userInputHeight
+    }
   });
 
   return newArray;
@@ -143,24 +129,23 @@ function searchByHeight(people){
     if(el.height == userInputHeight && el.occupation === userInputOccupation) {
       return true;
     }
-    // return true if el.weight matches userInputHeight
-  });
+      });
 
   return newArray;
 }
 function searchByAge(people){
   let userInputDob = prompt("what is the dob (date of birth) the person?");
-  
+  let userInputEyeColor = prompt("what is the EyeColor of the person?");
+  let userInputWeight = prompt("How much does the person weigh?");
+  let userInputHeight = prompt("what is the height of the person?");
   let newArray = people.filter(function (el) {
-    if(el.dob === userInputDob )  {
+    if(el.dob === userInputDob && el.eyeColor == userInputEyeColor &&  el.weight == userInputWeight && el.height == userInputHeight  )  {
       return true;
     }  
   });
 
   return newArray;
 }
-
-
 function searchByEyeColor(people){
   let userInputEyeColor = prompt("what is the EyeColor of the person?");
   let userInputDob = prompt("what is the dob (date of birth) the person?");
@@ -173,16 +158,11 @@ function searchByEyeColor(people){
 
   return newArray;
 }
-
-
-
 function searchByOccupation(people){
   let userInputOccupation = prompt("what is the occupation of the person?");
-
-
-
-  let newArray = people.filter(function (el) {
-    if(el.occupation == userInputOccupation) {
+  let userInputWeight = prompt("How much does the person weigh?");
+let newArray = people.filter(function (el) {
+    if(el.occupation == userInputOccupation && el.weight == userInputWeight) {
       return true;
     }
     // return true if el.weight matches userInputHeight
@@ -190,15 +170,14 @@ function searchByOccupation(people){
 
   return newArray;
 }
-
 function searchByWeight(people) {
   let userInputWeight = prompt("How much does the person weigh?");
-
+  let userInputDob = prompt("what is the dob (date of birth) the person?");
   let newArray = people.filter(function (el) {
-    if(el.weight == userInputWeight) {
+    if(el.weight == userInputWeight  && el.dob === userInputDob) {
       return true;
     }
-    // return true if el.weight matches userInputHeight
+    
   });
 
   return newArray;
@@ -230,15 +209,14 @@ function mainMenu(person, people){
 
     break;
     case "restart":
-    app(people); // restat
+    app(people); 
     break;
     case "quit":
-    return; // stop execution
+    return; 
     default:
-    return mainMenu(person, people); // ask again
+    return mainMenu(person, people); 
   }
 }
-
 function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
@@ -250,7 +228,7 @@ function searchByName(people){
   });
   displayPerson(foundPerson[0]);
 }
-   // TODO: find the person using the name they entered
+
 // alerts a list of people
 function displayPeople(people){
   alert(people.map(function(person){
@@ -272,6 +250,7 @@ function displayPerson(person){
   personInfo += "currentSpouse: " + person.currentSpouse + "\n";
  
   alert(personInfo);
+ 
 }
 function displayFamily(person){
  
@@ -280,19 +259,30 @@ function displayFamily(person){
   personInfo += "parents: " + person.parents + "\n";
   personInfo += "currentSpouse: " + person.currentSpouse + "\n";
  
- 
   alert(personInfo);
+  }
+  
+function searchByParents(people){
+  let userInputParents = prompt("what is the id of the parent?");
+
+  let newArray = people.filter(function (el) {
+    if(el.parents == userInputParents) {
+      return true;
+    }
+   
+  });
+
+  return newArray;
 }
+
+
 function displayDescendants(person){
   var personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
   personInfo += "parents: " + person.parents + "\n";
-  
+  displayparents(data);
+  alert(personInfo);
 }
-
-
-
-
 // function that prompts and validates user input
 function promptFor(question, callback){
   do{
@@ -310,3 +300,8 @@ function yesNo(input){
 function chars(input){
   return true; // default validation only
 }
+
+
+
+
+

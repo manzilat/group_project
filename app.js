@@ -41,8 +41,6 @@ function searchByTraits(people) {
       break;
       case "occupation":
       filteredPeople = searchByOccupation(people);
-      case "id":
-      filteredPeople = searchById(people);
       break;
       case "parents":
       filteredPeople = searchByParents(people);
@@ -195,7 +193,7 @@ function displayPerson(person){
 }
 function displaySpouseId(person, people){
   let output = [];
-  for(let i = 0; i < people.length; i++){
+  for(let i = 0; i < people; i++){
     if (person.currentSpouse == people[i].id ){
       output.push(people[i]);
     }
@@ -206,7 +204,9 @@ function displaySpouseId(person, people){
   personInfo += "parents: " + person.parents + "\n";
   personInfo += "currentSpouse: " + person.currentSpouse + "\n";
   for(let i = 0; i < person.currentSpouse.length; i++){
-    personInfo += "Parents: " + output[i].firstName + " " + output[i].lastName + " ";
+
+    personInfo += "currentSpouse: " + output[i].firstName + " " + output[i].lastName + " ";
+     
   }
  alert(personInfo);
 }
